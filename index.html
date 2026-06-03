@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>COOL 3D SPACE PIZZA DUCK WEBPAGE!!!!!!!!!</title>
+<style>
+body{margin:0;
+    overflow:hidden;
+    background-color:purple;
+    color:lime;
+
+}
+h1{
+    position:absolute;
+    top:10px;left:30px;
+    z-index:100;font-size:50px;
+    text-shadow:4px 4px red;}
+.info{position:absolute;
+    bottom:20px;
+    right:20px;
+    z-index:100;
+    background:yellow;
+    color:blue;padding:30px;
+    border:10px dashed red;font-size:25px;}
+
+@keyframes blinker{50%{opacity:0;}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<h1>WELCOME TO MY EPIC 3D DUCK PIZZA WORLD!!! OMG (My first Hackclub)</h1>
+<div class="info"><h3>The pizza globeee. Me love pizza in outer space. Fact frr.</h3></div>
+
+<script>
+var sss = new THREE.Scene();
+var ccc = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var rrr = new THREE.WebGLRenderer();
+rrr.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(rrr.domElement);
+
+
+var texLoader = new THREE.TextureLoader();
+var pizzaTex = texLoader.load('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=100&auto=format&fit=crop');
+
+var geo1 = new THREE.SphereGeometry(3, 32, 32);
+var mat1 = new THREE.MeshBasicMaterial({map: pizzaTex});
+var pizzaPlanet = new THREE.Mesh(geo1, mat1);
+sss.add(pizzaPlanet);
+
+
+var geo2 = new THREE.TorusGeometry(5, 1, 16, 100);
+var mat2 = new THREE.MeshBasicMaterial({color: 0xff00ff, wireframe: true});
+var donut = new THREE.Mesh(geo2, mat2);
+sss.add(donut);
+
+
+var geo3 = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+var mat3 = new THREE.MeshBasicMaterial({color: 0x00ffff});
+var box = new THREE.Mesh(geo3, mat3);
+box.position.x = -6;
+box.position.y = 3;
+sss.add(box);
+
+
+var geo4 = new THREE.ConeGeometry(1, 2, 32);
+var mat4 = new THREE.MeshBasicMaterial({color: 0xffa500});
+var duckBeak = new THREE.Mesh(geo4, mat4);
+duckBeak.position.x = 6;
+duckBeak.position.y = -3;
+sss.add(duckBeak);
+
+
+var light = new THREE.AmbientLight(0xffffff);
+sss.add(light);
+
+ccc.position.z = 12;
+
+
+function spinnySpin() {
+requestAnimationFrame(spinnySpin);
+
+
+pizzaPlanet.rotation.x += 0.01;
+pizzaPlanet.rotation.y += 0.02;
+
+donut.rotation.z -= 0.03;
+donut.rotation.x += 0.01;
+
+box.rotation.y += 0.05;
+box.position.y += Math.sin(Date.now() * 0.003) * 0.05;
+
+duckBeak.rotation.x += 0.02;
+duckBeak.rotation.z += 0.02;
+
+rrr.render(sss, ccc);
+}
+
+
+spinnySpin();
+
+
+</script>
+
+</body>
+</html>
