@@ -1,0 +1,20 @@
+# Local secrets. .env.example is the committed template.
+.env
+.env.*
+!.env.example
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# If a future tool adds a build or install step
+node_modules/
+dist/
+.cache/

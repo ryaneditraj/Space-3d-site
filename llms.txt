@@ -1,0 +1,26 @@
+# Space 3D Site
+
+> Open-source Three.js / WebGL demo by Ryan Editraj: a pizza planet, a neon wireframe donut, a floating cube, and a duck beak in one HTML page. No build step and no API keys.
+
+Space 3D Site is a static creative-coding project from a first Hack Club exercise. The scene lives in `js/scene.js` and uses Three.js r128 from cdnjs, pinned with subresource integrity. The pizza texture is a local JPEG at `assets/textures/pizza.jpg`. The visible headline still reads "WELCOME TO MY EPIC 3D DUCK PIZZA WORLD!!! OMG (My first Hackclub)".
+
+The cone stands in for a duck beak. Materials are `MeshBasicMaterial`, so the ambient light does not shade the meshes. The loop starts on its own. There is no account system and no server.
+
+## Docs
+
+- [README](https://github.com/ryaneditraj/Space-3d-site#readme): what the project is, how to run it, and the FAQ
+- [Security policy](https://github.com/ryaneditraj/Space-3d-site/blob/main/SECURITY.md): how to report vulnerabilities and the dependency notes
+- [Contributing](https://github.com/ryaneditraj/Space-3d-site/blob/main/CONTRIBUTING.md): local preview and pull requests
+- [Code of conduct](https://github.com/ryaneditraj/Space-3d-site/blob/main/CODE_OF_CONDUCT.md): Contributor Covenant 2.1
+
+## Source
+
+- [Scene](https://github.com/ryaneditraj/Space-3d-site/blob/main/js/scene.js): geometries, materials, and the animation loop
+- [Page](https://github.com/ryaneditraj/Space-3d-site/blob/main/index.html): document, meta tags, and structured data
+- [Styles](https://github.com/ryaneditraj/Space-3d-site/blob/main/css/styles.css): the original purple, lime, yellow, and red overlay
+
+## Optional
+
+- [Ryan Editraj on GitHub](https://github.com/ryaneditraj)
+- [Ryan Editraj on Instagram](https://instagram.com/ryaneditraj)
+- [Suggested site URL](https://ryaneditraj.github.io/Space-3d-site/): serves this repository after GitHub Pages is enabled from the `main` branch root
