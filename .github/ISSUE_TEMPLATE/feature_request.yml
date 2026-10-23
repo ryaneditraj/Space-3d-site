@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest a change to the scene, the page, or the docs
+title: "feat: "
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Describe the change and who it helps.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this, instead of a fork-only experiment?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Screenshots, links, or examples

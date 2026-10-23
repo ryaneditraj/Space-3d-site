@@ -1,105 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>COOL 3D SPACE PIZZA DUCK WEBPAGE!!!!!!!!!</title>
-<style>
-body{margin:0;
-    overflow:hidden;
-    background-color:purple;
-    color:lime;
-
-}
-h1{
-    position:absolute;
-    top:10px;left:30px;
-    z-index:100;font-size:50px;
-    text-shadow:4px 4px red;}
-.info{position:absolute;
-    bottom:20px;
-    right:20px;
-    z-index:100;
-    background:yellow;
-    color:blue;padding:30px;
-    border:10px dashed red;font-size:25px;}
-
-@keyframes blinker{50%{opacity:0;}}
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Space 3D Site — Epic 3D Duck Pizza World in Three.js</title>
+  <meta name="description" content="Open-source Three.js WebGL demo of a pizza planet, neon wireframe donut, floating cube, and duck beak. One HTML page, no build step, and no API keys.">
+  <meta name="keywords" content="Three.js, WebGL, 3D website, creative coding, pizza planet, duck beak, torus, JavaScript, Hack Club, open source 3D demo">
+  <meta name="author" content="Ryan Editraj">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#800080">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://ryaneditraj.github.io/Space-3d-site/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="author" href="https://github.com/ryaneditraj">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Space 3D Site">
+  <meta property="og:title" content="Space 3D Site — Epic 3D Duck Pizza World in Three.js">
+  <meta property="og:description" content="Open-source Three.js WebGL demo of a pizza planet, neon wireframe donut, floating cube, and duck beak. One HTML page, no build step, and no API keys.">
+  <meta property="og:url" content="https://ryaneditraj.github.io/Space-3d-site/">
+  <meta property="og:image" content="https://ryaneditraj.github.io/Space-3d-site/assets/screenshots/scene-desktop.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Space 3D Site in the browser: lime headline, pizza-textured sphere, magenta wireframe donut, cyan cube, and orange cone on a black canvas.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Space 3D Site — Epic 3D Duck Pizza World in Three.js">
+  <meta name="twitter:description" content="Open-source Three.js WebGL demo of a pizza planet, neon wireframe donut, floating cube, and duck beak. One HTML page, no build step, and no API keys.">
+  <meta name="twitter:image" content="https://ryaneditraj.github.io/Space-3d-site/assets/screenshots/scene-desktop.png">
+  <meta name="twitter:image:alt" content="Space 3D Site in the browser: lime headline, pizza-textured sphere, magenta wireframe donut, cyan cube, and orange cone on a black canvas.">
+  <meta name="twitter:creator" content="@ryaneditraj">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-VcS2B5+hkdjOmShOsAxxwaPHUqrFw5Vm3svi+4Q9DVE='; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; worker-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-<h1>WELCOME TO MY EPIC 3D DUCK PIZZA WORLD!!! OMG (My first Hackclub)</h1>
-<div class="info"><h3>The pizza globeee. Me love pizza in outer space. Fact frr.</h3></div>
-
-<script>
-var sss = new THREE.Scene();
-var ccc = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-var rrr = new THREE.WebGLRenderer();
-rrr.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(rrr.domElement);
-
-
-var texLoader = new THREE.TextureLoader();
-var pizzaTex = texLoader.load('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=100&auto=format&fit=crop');
-
-var geo1 = new THREE.SphereGeometry(3, 32, 32);
-var mat1 = new THREE.MeshBasicMaterial({map: pizzaTex});
-var pizzaPlanet = new THREE.Mesh(geo1, mat1);
-sss.add(pizzaPlanet);
-
-
-var geo2 = new THREE.TorusGeometry(5, 1, 16, 100);
-var mat2 = new THREE.MeshBasicMaterial({color: 0xff00ff, wireframe: true});
-var donut = new THREE.Mesh(geo2, mat2);
-sss.add(donut);
-
-
-var geo3 = new THREE.BoxGeometry(1.5, 1.5, 1.5);
-var mat3 = new THREE.MeshBasicMaterial({color: 0x00ffff});
-var box = new THREE.Mesh(geo3, mat3);
-box.position.x = -6;
-box.position.y = 3;
-sss.add(box);
-
-
-var geo4 = new THREE.ConeGeometry(1, 2, 32);
-var mat4 = new THREE.MeshBasicMaterial({color: 0xffa500});
-var duckBeak = new THREE.Mesh(geo4, mat4);
-duckBeak.position.x = 6;
-duckBeak.position.y = -3;
-sss.add(duckBeak);
-
-
-var light = new THREE.AmbientLight(0xffffff);
-sss.add(light);
-
-ccc.position.z = 12;
-
-
-function spinnySpin() {
-requestAnimationFrame(spinnySpin);
-
-
-pizzaPlanet.rotation.x += 0.01;
-pizzaPlanet.rotation.y += 0.02;
-
-donut.rotation.z -= 0.03;
-donut.rotation.x += 0.01;
-
-box.rotation.y += 0.05;
-box.position.y += Math.sin(Date.now() * 0.003) * 0.05;
-
-duckBeak.rotation.x += 0.02;
-duckBeak.rotation.z += 0.02;
-
-rrr.render(sss, ccc);
-}
-
-
-spinnySpin();
-
-
-</script>
-
+  <h1>WELCOME TO MY EPIC 3D DUCK PIZZA WORLD!!! OMG (My first Hackclub)</h1>
+  <div class="info">
+    <h3 id="scene-note">The pizza globeee. Me love pizza in outer space. Fact frr.</h3>
+  </div>
+  <noscript>
+    <p class="info">This 3D scene needs JavaScript and WebGL. Enable JavaScript and reload.</p>
+  </noscript>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+    integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="js/pizza-texture.js"></script>
+  <script src="js/scene.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://ryaneditraj.github.io/Space-3d-site/#website","name":"Space 3D Site","url":"https://ryaneditraj.github.io/Space-3d-site/","inLanguage":"en","description":"Open-source Three.js WebGL demo of a pizza planet, neon wireframe donut, floating cube, and duck beak. One HTML page, no build step, and no API keys.","author":{"@id":"https://github.com/ryaneditraj/#person"}},{"@type":"WebPage","@id":"https://ryaneditraj.github.io/Space-3d-site/#webpage","url":"https://ryaneditraj.github.io/Space-3d-site/","name":"Space 3D Site — Epic 3D Duck Pizza World in Three.js","description":"Open-source Three.js WebGL demo of a pizza planet, neon wireframe donut, floating cube, and duck beak. One HTML page, no build step, and no API keys.","inLanguage":"en","isPartOf":{"@id":"https://ryaneditraj.github.io/Space-3d-site/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://ryaneditraj.github.io/Space-3d-site/assets/screenshots/scene-desktop.png","width":1280,"height":720},"author":{"@id":"https://github.com/ryaneditraj/#person"},"keywords":"Three.js, WebGL, 3D website, creative coding, pizza planet, duck beak, Hack Club"},{"@type":"SoftwareSourceCode","name":"Space 3D Site","description":"Single-page Three.js WebGL scene with a pizza planet, wireframe donut, cube, and cone.","codeRepository":"https://github.com/ryaneditraj/Space-3d-site","url":"https://github.com/ryaneditraj/Space-3d-site","programmingLanguage":["JavaScript","HTML","CSS"],"runtimePlatform":"Web browser with WebGL","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"image":"https://ryaneditraj.github.io/Space-3d-site/assets/screenshots/scene-desktop.png","author":{"@id":"https://github.com/ryaneditraj/#person"}},{"@type":"Person","@id":"https://github.com/ryaneditraj/#person","name":"Ryan Editraj","url":"https://github.com/ryaneditraj","sameAs":["https://github.com/ryaneditraj","https://instagram.com/ryaneditraj","https://twitter.com/ryaneditraj","https://ryaneditraj.tech"]}]}</script>
 </body>
 </html>

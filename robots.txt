@@ -1,0 +1,19 @@
+# Space 3D Site is a public creative-coding demo.
+# AI and search crawlers may read the page and llms.txt.
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://ryaneditraj.github.io/Space-3d-site/sitemap.xml

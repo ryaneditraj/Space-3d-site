@@ -1,0 +1,37 @@
+name: Bug report
+description: Something in the 3D scene or the page is broken
+title: "bug: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for looking. Security issues belong in a [private advisory](https://github.com/ryaneditraj/Space-3d-site/security/advisories/new), not in this form.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run python3 -m http.server 8080
+        2. Open the page in ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and operating system
+      placeholder: Chrome 131 on macOS
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or extra context
+      description: A screenshot helps when the scene looks wrong.
